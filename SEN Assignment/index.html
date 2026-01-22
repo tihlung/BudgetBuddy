@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BudgetTrack Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1><i class="fas fa-wallet"></i> BudgetTrack</h1>
+            <p class="subtitle">Simple Personal Budget Management</p>
+        </header>
+
+        <!-- Main Dashboard -->
+        <div class="dashboard">
+            <!-- Balance Card -->
+            <div class="balance-card">
+                <h3>Current Balance</h3>
+                <div class="balance-amount" id="balanceAmount">$0.00</div>
+                <div class="balance-stats">
+                    <div class="stat">
+                        <span class="stat-label">Income</span>
+                        <span class="stat-value income" id="totalIncome">$0.00</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Expenses</span>
+                        <span class="stat-value expense" id="totalExpense">$0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Transaction Form -->
+            <div class="form-container">
+                <h3><i class="fas fa-plus-circle"></i> Add Transaction</h3>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" placeholder="e.g., Groceries, Salary" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="amount">Amount ($)</label>
+                            <input type="number" id="amount" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="type">Type</label>
+                            <select id="type">
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="food">Food & Dining</option>
+                            <option value="transport">Transportation</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="bills">Bills & Utilities</option>
+                            <option value="salary">Salary</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-save"></i> Add Transaction
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="history-section">
+            <div class="section-header">
+                <h3><i class="fas fa-history"></i> Transaction History</h3>
+                <div class="filters">
+                    <select id="filterType">
+                        <option value="all">All Transactions</option>
+                        <option value="income">Income Only</option>
+                        <option value="expense">Expenses Only</option>
+                    </select>
+                    <button class="clear-btn" id="clearAllBtn">
+                        <i class="fas fa-trash"></i> Clear All
+                    </button>
+                </div>
+            </div>
+            
+            <div class="transactions-list" id="transactionsList">
+                <!-- Transactions will appear here -->
+                <p class="empty-message" id="emptyMessage">No transactions yet. Add your first transaction above!</p>
+            </div>
+            
+            <div class="summary">
+                <h4>Monthly Summary</h4>
+                <div class="summary-cards">
+                    <div class="summary-card">
+                        <h5>Total Income</h5>
+                        <p class="summary-amount income" id="monthlyIncome">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h5>Total Expenses</h5>
+                        <p class="summary-amount expense" id="monthlyExpense">$0.00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h5>Net Balance</h5>
+                        <p class="summary-amount" id="netBalance">$0.00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>BudgetTrack - SDLC Implementation Project | Student: Adelaja Boluwatife | Matric No: 24/14386</p>
+            <p>Built with HTML, CSS, and JavaScript | Data saved in browser storage</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
